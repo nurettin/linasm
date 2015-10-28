@@ -1,0 +1,236 @@
++==============================================================================+
+|   2015-09-13  Release 1.11 (stable)                                          |
++==============================================================================+
+
+Bug fixes:
+	* Time.asm: Fixed negative year extraction error in ExtractDate function
+	* Filter.asm: Fixed broken pointer to Arra::Mul function
+	* String.asm: Fixed pointer error in Copy functions
+	* Array.asm: Fixed pointer error in QuickSort functions
+	* Vector.asm: Fixed pointer error in QuickSortKey functions
+
+New features:
+	* Added Vector2D and Vector3D libraries
+	* Added Complex library
+	* Added FHT library
+	* Added Matrix library
+	* Added Approximation library
+	* Math.asm: Add funtions Inverse InverseSqr and Sqr
+
+Changes in behavior:
+	* Math.asm: Function Hypot is split onto Hypot2D and Hypot3D
+	* Array.asm: Changed vector and scalar function names
+	* Math.asm: Changed barier value into inverse hyperbolic functions
+
++==============================================================================+
+|   2014-09-05  Release 1.1 (stable)                                           |
++==============================================================================+
+
+Bug fixes:
+	* Array.asm: Fixed compilation error in MAP macro
+
+New features:
+	* Math.asm: Added functions Cancel, AbsError, RelError
+	* Math.asm: Added functions SinH, CosH, TanH, ArcSinH, ArcCosH, ArcTanH
+	* Math.asm: Improved functions Exp2, Exp2m1, Exp10, Exp10m1, Exp, Expm1
+	* Math.asm: Improved trigonometric functions
+	* Math.asm: Improved speed of Log functions
+
+Changes in behavior:
+	* Library converted into shared object file
+
++==============================================================================+
+|   2014-08-03  Release 1.03 (stable)                                          |
++==============================================================================+
+
+Bug fixes:
+	Math.asm: Fixed incorrect consts are used in functions IsNormal, IsSubnormal, IsFinite, IsInfinite, IsNaN
+
+New features:
+	* Math.asm: Added ExpB and ExpBm1 functions
+	* Math.asm: Added inverse trigonometric functions ArcSin, ArcCos, ArcTan
+	* Math.asm: Added inverse logarithmic functions to base 2, 10, natural logarithm base and custom base
+	* Math.asm: Added functions Sin, Cos, Tan, SinCos with range reduction
+	* Statistics.asm: Added functions: FechnerCorrelation, SpearmanCorrelation
+	* Array.ash: Added functions: Sign, SumSqrDiff, SumAbsDiff
+
+Changes in behavior:
+	* Math.asm: Power functions renamed to ExpBi functions
+	* Math.asm: Removed functions SinQ, CosQ, TanQ, CotQ
+
++==============================================================================+
+|   2014-05-02  Release 1.02 (stable)                                          |
++==============================================================================+
+
+New features:
+	* Added Vector ADT
+	* Array.asm: Improved Convert functions
+	* Accumulator.asm, Btree.asm, Deque.asm, Hash.asm, Heap.asm, List.asm, Pool.asm, Stack.asm: Added function IsInit
+	* Array.asm, String.asm: Add InsertSort and MergeSort function
+	* String.asm: Added functions FindSymbolFwd, FindSymbolBwd, FindSymbolsFwd, FindSymbolsBwd, FindSubStringFwd, FindSubStringBwd
+	* Btree.asm: Add functions FindSequenceFwd and FindSequenceBwd
+	* Btree.asm: Added functions MinFwd, MinBwd, MaxFwd, MaxBwd
+	* Hash.asm, Btree.asm: Add functions FindSequenceFwd and FindSequenceBwd
+	* Hash.asm: Added functions MinFwd, MinBwd, MaxFwd, MaxBwd
+	* Deque.asm: Added functions: InsertHead, InsertTail, ExtractHead, ExtractTail
+	* Stack.asm: Added functions Insert, Extract
+	* Heap.asm: Added function Extract
+	* Heap.asm: Added index call back function
+
+Changes in behavior:
+	* Statistics.asm: Function Correlation renamed to PearsonCorrelation
+	* Stack.h, Deque.h: Changed prototypes of functions: CopyHead, CopyTail, MoveHead, MoveTail, FindDiffHead, FindDiffTail
+	* Heap.asm: Changed prototype of Merge function
+	* Removed Stack.asm
+
++==============================================================================+
+|   2014-02-08  Release 1.01 (stable)                                          |
++==============================================================================+
+
+Bug fixes:
+	* MaxHeap.h, MinHeap.h, MultiTree.h, UniqueTree.h: Corrected prototype of CompareFunction in object properties section
+	* Btree.asm, Deque.asm, Heap.asm, Stack.asm: Fixed capacity overflow during extending object capacity procedure
+	* Btree.asm: Fixed iterator moving error for first/last element
+
+New features:
+	* Added Multiply/Unique keys hash table ADT
+	* Added List/Ring ADT
+	* String.asm: Added functions Reverse
+	* Array.asm, String.asm: Added Hash functions 32 and 64 bit versions
+
+Changes in behavior:
+	* Deque: Improved functions Copy and Move
+	* Stack: Improved functions Copy and Move
+	* Heap.asm: Corrected check condition in function Merge
+	* Btree.asm: Changed prototypes of CopyFwd, CopyBwd, MoveFwd, MoveBwd functions and changed function names: FindKeyEqualFwd, FindKeyEqualBwd, FindKeyGreatFwd, FindKeyGreatBwd, FindKeyGreatOrEqualFwd, FindKeyGreatOrEq
+
++==============================================================================+
+|   2013-12-16  Release 1.00 (stable)                                          |
++==============================================================================+
+
+Bug fixes:
+	* Array.asm, Statistics.asm, String.asm: Fixed error with zero size bit8_t arrays
+	* String.asm: Fixed function pointer error in functions "FindFwd" and "FindBwd"
+	* String.asm: Fixed incorrect export names for functions "FindFwd" and "FindBwd"
+
+New features:
+	* Added FPU control library
+	* Added SIMD control library
+	* Added Accumulating buffer library
+	* Added Object pool library
+	* Added Stack ADT
+	* Added Deque ADT
+	* Added Binary max heap ADT
+	* Added Binary min heap ADT
+	* Added Multiply keys b-tree ADT
+	* Added Unique keys b-tree ADT
+	* Array.asm: Added functions "FindEqualAsc", "FindGreatAsc", "FindGreatOrEqualAsc", "FindLessAsc", "FindLessOrEqualAsc", "FindEqualDsc", "FindLessDsc", "FindLessOrEqualDsc", "FindGreatDsc", "FindGreatOrEqualDsc"
+	* Array.asm: Added functions "CheckSortAsc", "CheckSortDsc" and "Count"
+	* String.asm: Added functions: "CountSymbol", "CountSymbols", "CountString", "Unique", "Duplicates", "MergeAsc", "MergeDsc", "MergeKeyAsc", "MergeKeyDsc", "CheckSortAsc", "CheckSortDsc"
+	* String.asm: Added functions: "FindEqualAsc", "FindGreatAsc", "FindGreatOrEqualAsc", "FindLessAsc", "FindLessOrEqualAsc", "FindEqualDsc", "FindLessDsc", "FindLessOrEqualDsc", "FindGreatDsc", "FindGreatOrEqualDsc" and "ReplaceString"
+	* Math.asm: Added functions "MinAbs", "MaxAbs", "Cmp"
+	* Math.asm: Added functions "ScanForward", "ScanBackward", "RotateLeft", "RotateRight" and "PopCount"
+	* Math.asm: Added function "BitReverse"
+
+Changes in behavior:
+	* Syscall.inc: Updated system calls
+	* Macro.inc: Updated constants
+	* Time.h: Struct tzone renamed to struct Time
+	* Angle.h: Standardized functions namespace
+	* Array.asm: Improved functions "Unique" and "Duplicates"
+	* String.asm: Improved function "FindSymbols"
+	* Numbers.asm: Improved functions "HexToNum"
+
++==============================================================================+
+|   2013-02-04  Release 0.99 (beta)                                            |
++==============================================================================+
+
+Bug fixes:
+    * Statistics.asm: Fixed incorrect loop count in functions "Variance", "StandardDeviation", and "AbsoluteDeviation"
+    * String.asm: Fixed incorrect return value in function FindSymbols
+
+New features:
+    * Array.asm: Added functions "MergeAsc", "MergeAscKey", "MergeDsc", "MergeDscKey"
+    * Array.asm: Added functions "Duplicates", "CheckDup"
+    * Array.asm: Added function "CheckEqual"
+    * Array.asm: Added function "NegAbs"
+    * Array.asm: Added function "SumAbs"
+    * Array.asm: Added functions "Not", "And", "Or", "Xor" for size_t type
+    * Array.asm Added integer "Add", "Sub", "Min" and "Max" functions
+    * Math.asm: Added functions "RoundDown", "RoundUp", "Round" and "Frac"
+    * Statistics.asm: Added functions "LowerQuartile", "UpperQuartile" and "InterquartileRange" for integral types
+    * Statistics.asm: Improved "Mean" function
+    * String.asm: Added addition "FindString" function
+    * String.asm: Added functions "FindFwd", "FindBwd", "FindAsc", "FindDsc", "SortAsc", "SortDsc", "CheckDup"
+
+Changes in behavior:
+    * Array.asm: Changed prototype of function "Unique"
+    * Array.asm: Removed binary serching functions for complex keys
+    * Array.asm: Changed prototypes of QuickSort and RadixSort for keys
+    * Array.asm: Functions "HasInf" and "HasNaN" have been renamed to "CheckInf", "CheckNaN". Return value is also changed
+    * Array.asm: Changed return value in fuctions "Min", "MinAbs", "Max", "MaxAbs". If array size is 0, then NaN is returned
+    * Array.asm: Changed name of rounding function from "Truncate" to "Trunc"
+    * Statistics.asm: Changed prototypes of "Covariance" and "Correlation" functions
+    * String.asm: Changed protype of "ReplaceSymbol" function (removed return value)
+    * String.asm: Removed functions "IsEqual" and added functions "Compare" instead
+
++==============================================================================+
+|   2012-10-25  Release 0.98 (beta)                                            |
++==============================================================================+
+
+Bug fixes:
+    * Math.asm: All Check functions: Fixed error in the check algorithm
+
+New features:
+    * Array.asm: Added functions "Move" and "Clone"
+    * Array.asm: Added binary search function "FindAsc" and "FindDsc" for keys searching
+    * Array.asm: Added rounding functions: "RoundDown", "RoundUp", "RoundInt", "Round" and "Truncate"
+    * Array.asm: Added scalar bitwise functions AND, OR, XOR
+    * Math.asm: Added functions "Exp2", "Exp2m1", "Exp10", "Exp10m1", "Exp", "Expm1" for real argument
+    * Math.asm: Improved functions "Exp2", "Exp10", "Exp" for integral argument
+    * Math.asm: Added trigonometric functions "SinQ", "CosQ", "TanQ", "CotQ" and "SinCosQ"
+    * Math.asm: Added function "Cath" and improved "Hypot" function
+    * Math.asm: Added "GCD" and "LCM" functions
+    * Math.asm: Added fast "RoundInt" and "Truncate" functions
+    * Math.asm: Improved "Scale2", "Scale10" and "ScaleE" functions
+    * String.asm: Added string concatenation functions and "ReplaceSymbol" function
+
+Changes in behavior:
+    * String.asm: "Copy" function returns empty string if target buffer is too small
+    * Array.asm: Changed C function names for bitwise AND, OR, and XOR
+
++==============================================================================+
+|   2012-08-27  Release 0.97 (beta)                                            |
++==============================================================================+
+
+Bug fixes:
+    * Array.asm: "Unique" function: Fixed source pointer increment error
+
+New features:
+    * Added C API for all library functions
+
+Changes in behavior:
+    * String.h: Changed function name "FindSymbols"
+    * Numbers.h: All functions: Changed passing method for "number" parameter from reference to a pointer
+
++==============================================================================+
+|   2012-08-23  Release 0.96 (beta)                                            |
++==============================================================================+
+
+New features:
+    * Added Filter library
+    * Added Window library
+
++==============================================================================+
+|   2012-08-15  Release 0.95 (alpha)                                           |
++==============================================================================+
+
+New features:
+    * Added Angle library
+    * Added Array library
+    * Added Math library
+    * Added Numbers library
+    * Added Sequence library
+    * Added Statistics library
+    * Added String library
+    * Added Time library

@@ -1,0 +1,254 @@
+################################################################################
+# Encoding: UTF-8                                                  Tab size: 4 #
+#                                                                              #
+#                                 LINASM NEWS                                  #
+#                                                                              #
+# License: LGPLv3+                               Copyleft (Ɔ) 2015, Jack Black #
+################################################################################
+
+#******************************************************************************#
+#       Release 1.11 (stable) [2015-09-13]                                     #
+#******************************************************************************#
+
+New version of LinAsm library is completely ready after one year of testing and
+developing. Version 1.11 fixes few bugs were found after conversion library to
+shared object file and adds new modules/libraries to fast mathematical
+operations.
+
+The bugs where fixed:
+    * Time library: Fixed negative year extraction error in ExtractDate function
+    * Filter library: Fixed broken pointer to Array::Mul function
+    * String library: Fixed pointer error in Copy functions
+    * Array and Vector library: Fixed pointer error in QuickSort and
+      QuickSortKey functions
+
+New libraries are added in this release:
+    * Approximation - library for approximation of empirical data by well known
+      math functions
+    * Complex - fast core functions to operate with complex numbers
+    * FHT - Fast Hartley transformation (analog of fast Fourier transformation)
+    * Matrix - Typical matrix operations and solvers for linear systems
+    * 2D vector - primitives to work with two dimensional vectors
+    * 3D vector - primitives to work with three dimensional vectors
+
+More detailed information about LinAsm changes see into ChangeLog file.
+
+#******************************************************************************#
+#       Release 1.1 (stable) [2014-09-05]                                      #
+#******************************************************************************#
+
+LinAsm library is converted into shared object file (*.so) instead of static lib
+file (*.a). Also was fixed compilation bag in MAP macro and added new functions
+into Math block.
+
+Here is the list of changed were made:
+    * Array library: Fixed compilation error in MAP macro.
+    * Math library: Added functions Cancel, AbsError, RelError, SinH, CosH,
+      TanH, ArcSinH, ArcCosH, ArcTanH.
+    * Math library: Improved functions Exp2, Exp2m1, Exp10, Exp10m1, Exp, Expm1
+      and trigonometric functions.
+    * Math library: Improved speed of Log functions.
+
+#******************************************************************************#
+#       Release 1.03 (stable) [2014-08-03]                                     #
+#******************************************************************************#
+
+This release adds new math functions which were not developed until now,
+such as inverse trigonometric and logarithmic functions. Also were rewrote
+exponentiation functions and trigonometric functions too.
+
+The detailed list of new functions is here:
+    * Math library: Were added functions: Sin, Cos, Tan, SinCos. All of them
+      do range reductions for all available angle values supported by
+      floating-point format.
+    * Math library: Inverse trigonometric functions: ArcSin, ArcCos, ArcTan
+      compute inverse sine, cosine and tangent values.
+    * Math library: New logarithmic functions compute logarithm values to base
+      2, 10, e (natural logarithm base) and to custom base.
+    * Math library: Functions ExpB and ExpBm1 can compute "base" raised to "exp"
+      power, where "base" and "exp" are floating-point numbers. Base should be
+      positive number or zero.
+    * Array library: Were added functions Sign (replace value with its sign,
+      using three-state comparison comparison), SumSqrDiff, SumAbsDiff.
+    * Statistics library: Were released Fechner and Spearman correlation,
+      fast and efficient for big data series.
+
+#******************************************************************************#
+#       Release 1.02 (stable) [2014-05-02]                                     #
+#******************************************************************************#
+
+New extends abstract data type library with new class called "Vector", which
+provides the same functionality as STL vector class, but works faster. Also were
+redesigned "Array" library. Were added object array functions such as object
+searching, sorting, counting, extracting unique objects and so on. String
+library also was recreated to works with array of strings. Were added
+bidirectional search for symbol, symbols set, and substrings.
+
+Minor changed in this release:
+    * Added function IsInit in all ADT classes.
+    * Improved data conversion functions in the "Array" library.
+    * Added functions FindSequenceFwd and FindSequenceBwd in MultiTree and
+      MultiHash abstract data types.
+    * Added functions MinFwd, MinBwd, MaxFwd, MaxBwd in MultiTree, UniqueTree,
+      MultiHash and UniqueHash ADTs.
+    * Added functions FindSymbolFwd, FindSymbolBwd, FindSymbolsFwd,
+      FindSymbolsBwd, FindSubStringFwd, FindSubStringBwd in the "String" library.
+    * Added functions: InsertHead, InsertTail, ExtractHead, ExtractTail in
+      Deque ADT.
+    * Added functions Insert, Extract in Stack ADT.
+    * Added index rearrangement call back function in Heap ADT, which allow
+      to trace objects when heap swap elements to correct their order during
+      Insert and Extract operations.
+
+#******************************************************************************#
+#       Release 1.01 (stable) [2014-02-08]                                     #
+#******************************************************************************#
+
+In this release were added new abstract data types:
+    * MultiHash.h - Multiply keys hash table ADT
+    * UniqueHash.h - Unique keys hash table ADT
+    * List.h - Doubly linked list ADT
+    * Ring.h - Circular doubly linked list ADT
+
+Also were fixed found bugs in following abstract data types: MaxHeap.h,
+MinHeap.h, MultiTree.h, UniqueTree.h. Check the ChangeLog file for more
+information about changes in this release.
+
+#******************************************************************************#
+#       Release 1.00 (stable) [2013-12-16]                                     #
+#******************************************************************************#
+
+Finally stable release after ten month of debugging, optimization and writing
+new libraries. In this release I am glad to present you new modules, which
+significantly extend LinAsm applications. They implement abstract data types
+such as Stack, Deque, Min/Max heaps and very powerful tree structure - in-memory
+b-trees. Also were added new libraries: Object pool and Accumulating buffer
+to optimize memory management routines. For detailed descriptions of the new
+modules, fixed bugs and new features see documentation and ChangeLog file inside
+the release archive.
+
+Here is brief description of new modules in the LinAsm project:
+    * Accumulator.h - Accumulating buffer library
+    * Pool.h - Object pool library
+    * FPU.h - FPU control functions library
+    * SIMD.h - SIMD control functions library
+    * Stack.h - Stack ADT
+    * Deque.h - Double-ended queue ADT
+    * MaxHeap.h - Binary max heap ADT
+    * MinHeap.h - Binary min heap ADT
+    * MultiTree.h - Multiply keys b-tree ADT
+    * UniqueTree.h - Unique keys b-tree ADT
+
+#******************************************************************************#
+#       Release 0.99 (beta) [2013-02-04]                                       #
+#******************************************************************************#
+
+It is time to global optimization. For this release I completely rewrote modules
+"Array", "Statistics" and "String". Plus I made some brief improvement in
+Math library. In previous version of LinAsm release the modules "Statistics"
+and "String" were working too slow. String library even was not optimized.
+Now all this is fixed and work much faster (here is the test of statistics
+library). Many of new functions were added to Array and String modules.
+Some functions have changed prototypes + few bugs were fixed. Details can be
+found in "ChangeLog" file inside the package archive.
+
+Major changes in this version:
+    * String library is completely rewrote with vector instructions. Now it is
+      very fast.
+    * Were added integer arithmetic functions to Array library.
+    * Added robust statistics functions "LowerQuartile", "UpperQuartile"
+      and "InterquartileRange" for integer types.
+    * Improved rounding functions in Math library.
+    * Array library has new functions to merge sorted arrays, collect
+      unique values and compute count of duplicates.
+    * String module now can manage array of strings. Were implemented searching
+      and sorting operations. Added check for duplicate strings.
+    * Changed prototypes for key sorting functions in Array library. Removed
+      binary searching functions for complex keys.
+    * Were fixed incorrect loop counter in Statistics library for functions
+      "Variance", "StandardDeviation", and "AbsoluteDeviation".
+
+#******************************************************************************#
+#       Release 0.98 (beta) [2012-10-25]                                       #
+#******************************************************************************#
+
+After two months of hard working on a new release, I finally have finished
+a lot of functions (but not all of them) which have to be in final library.
+In this release I improved many functions from Math library, which were working
+too slow in previous version, and added much faster mathematical routines
+for engineering calculations.
+
+Almost all of them use vector instructions and work 2 times faster then
+their analogs from GNU C library. A performance test will be added later in
+release 0.99, when Math library is complete.
+
+Also in new release were:
+    * added functions "Move", "Clone" and rounding routines in Array library
+    * added functions "Exp2", "Exp2m1", "Exp10", "Exp10m1", "Exp", "Expm1" for
+      real argument and improved "Exp2", "Exp10", "Exp" for integral argument
+    * improved "Scale2", "Scale10" and "ScaleE" functions
+    * added trigonometric functions "SinQ", "CosQ", "TanQ", "CotQ", "SinCosQ",
+      "Cath" and improved "Hypot" function
+    * added "GCD" and "LCM" functions
+    * added fast "RoundInt" and "Truncate" functions
+    * fixed error in Math library (see ChangeLog for details)
+    * added string concatenation functions and "ReplaceSymbol" function in
+      String library
+
+#******************************************************************************#
+#       Release 0.97 (beta) [2012-08-27]                                       #
+#******************************************************************************#
+
+This release extends libraries usage for non C++ projects and provide C
+prototypes for all functions and data structures. The C functions have the
+same behavior and parameters, like original C++ functions, and work in the
+same ways like their originals. The assembly language code stays the same for
+both variants, and it is shared between them, just providing aliases for already
+implemented functions.
+
+Also in release 0.97 were:
+    * fixed non critical bug in Array library
+    * changed function names in String library
+    * modified parameters passing method for Numbers library
+
+For more details about release changes see the ChangeLog file inside the LinAsm
+package v0.97.
+
+#******************************************************************************#
+#       Release 0.96 (beta) [2012-08-23]                                       #
+#******************************************************************************#
+
+As I promised before in my future plans for the project, I added Digital Signals
+Processing (DSP) functions to the library package. They implement FIR filters
+and window functions for future Spectral analysis module. Now LinAsm release
+has the two additional libraries:
+    * Filter - Finite impulse response digital filters
+    * Window - Window functions for digital signal processing
+
+And from now the project has a beta version label. So it is almost done, and
+can be used in your software development projects.
+
+#******************************************************************************#
+#       First release 0.95 (alpha) [2012-08-15]                                #
+#******************************************************************************#
+
+At last, I have finished all preparation for the first release of LinAsm
+project. I made code checks and wrote good documentation (as I think) for
+libraries functions. But you should remember that this is first public release
+of the project. And it is early alpha version. So it may have some bugs
+and mistakes in the source code. If you find some, please send them
+to the bug tracker.
+
+This release includes following libraries:
+    * Angle - Angles conversion from different units
+    * Array - Common routines that are useful for arrays
+    * Math - Math routines
+    * Numbers - Numbers conversion functions
+    * Sequence - Subsequence searching algorithms
+    * Statistics - Widely used statistical functions
+    * String - Safe string functions
+    * Time - Time functions
+
+################################################################################
+#                                 END OF FILE                                  #
+################################################################################
